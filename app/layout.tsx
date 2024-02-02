@@ -1,22 +1,25 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import { ClerkProvider } from "@clerk/nextjs";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Storex Admin DAshboard",
-  description: "Admin Dashboard",
+	title: "Storex Admin Dashboard",
+	description: "Admin Dashboard",
 };
 
 export default function RootLayout({
-  children,
+	children,
 }: Readonly<{
-  children: React.ReactNode;
+	children: React.ReactNode;
 }>) {
-  return (
-    <html lang="en">
-      <body className={inter.className}>{children}</body>
-    </html>
-  );
+	return (
+		<ClerkProvider>
+			<html lang="en">
+				<body className={inter.className}>{children}</body>
+			</html>
+		</ClerkProvider>
+	);
 }

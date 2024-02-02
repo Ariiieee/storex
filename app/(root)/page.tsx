@@ -1,5 +1,10 @@
-import Image from "next/image";
+import { UserButton } from "@clerk/nextjs";
 
-export default function Home() {
-	return <p> Hello dashboard</p>;
-}
+const SetupPage = () => {
+	return (
+		<div className="p-4">
+			<UserButton afterSignOutUrl="/" />
+		</div>
+	);
+};
+export default SetupPage;
